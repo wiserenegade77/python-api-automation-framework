@@ -11,8 +11,7 @@ from config import BASE_URL
     ]
 )
 def test_get_user(api_client,user_id,status):
-    api_response =api_client.get(BASE_URL+'/users/'+f"{user_id}",
-    timeout = 10)
+    api_response =api_client.get(f"/users/{user_id}")
 
     # print(api_response.json())
     assert api_response.status_code == status

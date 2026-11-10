@@ -28,4 +28,14 @@ def test_get_user(api_client,user_id,status):
         assert 'city' and 'zipcode' in dict_data['address']
         print(dict_data['address'])
 
-        
+
+def test_create_post(api_client):
+    payload = {
+        "title": "API Automation",
+        "body": "Learning Python Requests",
+        "userId": 1
+    }
+    api_post_response = api_client.post("/posts",payload)
+    # print(api_post_response.headers)
+    print(api_post_response.json())
+

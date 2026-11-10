@@ -14,5 +14,15 @@ class APIClient:
 
         return response
 
+    def post(self,endpoint,payload):
+        url  = f"{self.base_url}/{endpoint.lstrip("/")}"
+
+        response = self.session.post(
+            url,
+            data=  payload
+        )
+        return response
+
+
     def close(self):
         self.session.close()
